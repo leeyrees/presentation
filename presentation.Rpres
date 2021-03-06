@@ -1,0 +1,34 @@
+Presentation
+========================================================
+author: Leyre Sastre
+date: March 2021
+autosize: true
+font-import:https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap
+font-family: 'Playfair Display'
+css:custom.css 
+First Slide
+========================================================
+type: section 
+incremental: true
+
+This task consists in choosing a data set and present a few of its characteristics. We have chosen the data set Cereal. It contains information about types of cereals and nutrinional data dependeding the cereal type. The : 
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+Slide With Code
+========================================================
+
+```{r, echo = FALSE}
+library(Stat2Data)
+data(Cereal)
+head(Cereal)
+```
+
+Slide With Plot
+========================================================
+
+```{r, echo=FALSE}
+plot(Cereal)
+```
