@@ -1,3 +1,8 @@
+<style>
+width: 1500
+height: 900
+</style>
+
 Presentation
 ========================================================
 author: Leyre Sastre
@@ -6,29 +11,93 @@ autosize: true
 font-import:https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap
 font-family: 'Playfair Display'
 css:custom.css 
-First Slide
+transition: fade
+transition-speed: slow
+incremental: true
+Data set
 ========================================================
 type: section 
 incremental: true
+transition: fade
 
-This task consists in choosing a data set and present a few of its characteristics. We have chosen the data set Cereal. It contains information about types of cereals and nutrinional data dependeding the cereal type. The : 
+This task consists in choosing a data set and present a few of its characteristics. We have chosen the data set Cereal. It contains information about types of cereals and nutritional data depending the cereal type. The variables are: 
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+<li class="fragment fade-in">Cereal: brandname of the cereal.</li>
+<li class="fragment fade-in">Calories: calories per serving.</li>
+<li class="fragment fade-in">Sugar: grams of sugar per serving.</li>
+<li class="fragment fade-in">Fiber: grams of fiber per serving.</li>
 
-Slide With Code
+Data set
 ========================================================
+type: section 
+transition: true
+Here we can see the first six entries of the data set: 
+
+
 
 ```{r, echo = FALSE}
 library(Stat2Data)
 data(Cereal)
 head(Cereal)
+
 ```
 
-Slide With Plot
+Statistics Summary
 ========================================================
+type: section 
+transition: true
+Here we can see the main statistical parameters of the numerical variables: 
 
-```{r, echo=FALSE}
-plot(Cereal)
+```{r, echo = FALSE}
+X = Cereal[,2:4]
+summary(X)
 ```
+
+
+
+
+========================================================
+```{r, echo = FALSE}
+library(plotly)
+library(ggplot2)
+axis = list(showline=FALSE,
+            zeroline=FALSE,
+            gridcolor='#ffff',
+            ticklen=4,
+            titlefont=list(size=13))
+
+p <- Cereal %>%
+  plot_ly() %>%
+  add_trace(
+    type = 'splom',
+    dimensions = list(
+    list(label='Calories', values=~`Calories`),
+    list(label='Sugar', values=~`Sugar`),
+    list(label='Fiber', values=~`Fiber`)
+    ),
+    text=~factor(Cereal),
+    diagonal=list(visible=F),
+    marker = list(
+      color = '#ef553b',
+      size = 5,
+      line = list(
+        width = 1,
+        color = 'rgb(230,230,230)'
+      )
+    )
+  )
+
+
+htmlwidgets::saveWidget(p,'plotly.html')
+```
+
+<style>
+  .p_iframe iframe {
+    width:90%;
+    height:576px;
+}
+</style>
+
+<div class="p_iframe">
+<iframe frameborder="0" seamless='seamless' scrolling=no src="plotly.html"></iframe>
+</div>
