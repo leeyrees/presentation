@@ -95,7 +95,7 @@ htmlwidgets::saveWidget(p,'plotly.html')
 
 <style>
   .p_iframe iframe {
-    width:90%;
+    width:80%;
     height:576px;
 }
 </style>
