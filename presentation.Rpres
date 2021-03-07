@@ -89,8 +89,9 @@ p <- Cereal %>%
     )
   )
 
+p <- htmltools::div( p, align="center" )  # Result is now an HTML object
+htmltools::save_html( p,'plotly.html' ) 
 
-htmlwidgets::saveWidget(p,'plotly.html')
 ```
 
 <style>
