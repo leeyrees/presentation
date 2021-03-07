@@ -55,8 +55,10 @@ summary(X)
 
 
 
-
+Interactive Correlation Matrix
 ========================================================
+type: section 
+transition: false
 ```{r, echo = FALSE}
 library(plotly)
 library(ggplot2)
@@ -101,3 +103,15 @@ htmlwidgets::saveWidget(p,'plotly.html')
 <div class="p_iframe">
 <iframe frameborder="0" seamless='seamless' scrolling=no src="plotly.html"></iframe>
 </div>
+
+Density of calories
+========================================================
+type: section 
+transition: true
+```{r, echo = FALSE, fig.align='center'}
+   Cereal %>%
+  ggplot( aes(x=Calories)) +
+    geom_density(fill="#69b3a2", color="#e9ecef", alpha=0.8) +
+    ggtitle("Calories distribution of Cereal") 
+```
+
