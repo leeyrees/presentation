@@ -65,7 +65,7 @@ Here we can see the main statistical parameters of the numerical variables:
 
 
 
-Interactive Correlation Matrix
+Correlation Matrix
 ========================================================
 type: section 
 transition: false
@@ -73,7 +73,7 @@ transition: false
 
 <style>
   .p_iframe iframe {
-    width:90%;
+    width:80%;
     height:576px;
 }
 </style>
